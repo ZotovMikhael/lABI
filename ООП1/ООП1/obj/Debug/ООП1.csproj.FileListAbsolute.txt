@@ -1,0 +1,15 @@
+C:\Users\Михаил\Desktop\ооп\ООП1\ООП1\bin\Debug\ООП1.exe.config
+C:\Users\Михаил\Desktop\ооп\ООП1\ООП1\bin\Debug\ООП1.exe
+C:\Users\Михаил\Desktop\ооп\ООП1\ООП1\bin\Debug\ООП1.pdb
+C:\Users\Михаил\Desktop\ооп\ООП1\ООП1\obj\Debug\ООП1.csproj.AssemblyReference.cache
+C:\Users\Михаил\Desktop\ооп\ООП1\ООП1\obj\Debug\MainWindow.g.cs
+C:\Users\Михаил\Desktop\ооп\ООП1\ООП1\obj\Debug\App.g.cs
+C:\Users\Михаил\Desktop\ооп\ООП1\ООП1\obj\Debug\ООП1_MarkupCompile.cache
+C:\Users\Михаил\Desktop\ооп\ООП1\ООП1\obj\Debug\ООП1_MarkupCompile.lref
+C:\Users\Михаил\Desktop\ооп\ООП1\ООП1\obj\Debug\MainWindow.baml
+C:\Users\Михаил\Desktop\ооп\ООП1\ООП1\obj\Debug\ООП1.g.resources
+C:\Users\Михаил\Desktop\ооп\ООП1\ООП1\obj\Debug\ООП1.Properties.Resources.resources
+C:\Users\Михаил\Desktop\ооп\ООП1\ООП1\obj\Debug\ООП1.csproj.GenerateResource.cache
+C:\Users\Михаил\Desktop\ооп\ООП1\ООП1\obj\Debug\ООП1.csproj.CoreCompileInputs.cache
+C:\Users\Михаил\Desktop\ооп\ООП1\ООП1\obj\Debug\ООП1.exe
+C:\Users\Михаил\Desktop\ооп\ООП1\ООП1\obj\Debug\ООП1.pdb
