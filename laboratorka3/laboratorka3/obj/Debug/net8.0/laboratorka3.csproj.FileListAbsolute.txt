@@ -1,0 +1,14 @@
+C:\Users\Михаил\Desktop\ооп\laboratorka3\laboratorka3\bin\Debug\net8.0\laboratorka3.exe
+C:\Users\Михаил\Desktop\ооп\laboratorka3\laboratorka3\bin\Debug\net8.0\laboratorka3.deps.json
+C:\Users\Михаил\Desktop\ооп\laboratorka3\laboratorka3\bin\Debug\net8.0\laboratorka3.runtimeconfig.json
+C:\Users\Михаил\Desktop\ооп\laboratorka3\laboratorka3\bin\Debug\net8.0\laboratorka3.dll
+C:\Users\Михаил\Desktop\ооп\laboratorka3\laboratorka3\bin\Debug\net8.0\laboratorka3.pdb
+C:\Users\Михаил\Desktop\ооп\laboratorka3\laboratorka3\obj\Debug\net8.0\laboratorka3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Михаил\Desktop\ооп\laboratorka3\laboratorka3\obj\Debug\net8.0\laboratorka3.AssemblyInfoInputs.cache
+C:\Users\Михаил\Desktop\ооп\laboratorka3\laboratorka3\obj\Debug\net8.0\laboratorka3.AssemblyInfo.cs
+C:\Users\Михаил\Desktop\ооп\laboratorka3\laboratorka3\obj\Debug\net8.0\laboratorka3.csproj.CoreCompileInputs.cache
+C:\Users\Михаил\Desktop\ооп\laboratorka3\laboratorka3\obj\Debug\net8.0\laboratorka3.dll
+C:\Users\Михаил\Desktop\ооп\laboratorka3\laboratorka3\obj\Debug\net8.0\refint\laboratorka3.dll
+C:\Users\Михаил\Desktop\ооп\laboratorka3\laboratorka3\obj\Debug\net8.0\laboratorka3.pdb
+C:\Users\Михаил\Desktop\ооп\laboratorka3\laboratorka3\obj\Debug\net8.0\laboratorka3.genruntimeconfig.cache
+C:\Users\Михаил\Desktop\ооп\laboratorka3\laboratorka3\obj\Debug\net8.0\ref\laboratorka3.dll
