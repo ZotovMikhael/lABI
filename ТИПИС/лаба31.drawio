@@ -1,0 +1,150 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.2.7">
+  <diagram name="Страница-1" id="BDIpFb7arYKJr8gMVdAZ">
+    <mxGraphModel dx="2547" dy="1273" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lyT2ghbH6pQj29JS6n75-122" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=top;align=center;size=65;" value="Пользователь" vertex="1">
+          <mxGeometry height="970" width="35" x="20" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-123" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="PlaylistInterface" vertex="1">
+          <mxGeometry height="970" width="150" x="360" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-124" parent="lyT2ghbH6pQj29JS6n75-123" style="points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0}" value="" vertex="1">
+          <mxGeometry height="270" width="10" x="70" y="107" as="geometry" />
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-125" parent="lyT2ghbH6pQj29JS6n75-123" style="points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0}" value="" vertex="1">
+          <mxGeometry height="456" width="10" x="70" y="419" as="geometry" />
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-126" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="PlaylistService" vertex="1">
+          <mxGeometry height="970" width="150" x="640" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-127" parent="lyT2ghbH6pQj29JS6n75-126" style="points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0}" value="" vertex="1">
+          <mxGeometry height="156" width="10" x="70" y="159" as="geometry" />
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-128" parent="lyT2ghbH6pQj29JS6n75-126" style="points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0}" value="" vertex="1">
+          <mxGeometry height="342" width="10" x="70" y="471" as="geometry" />
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-129" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="MusicDatabase" vertex="1">
+          <mxGeometry height="970" width="150" x="922" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-131" parent="lyT2ghbH6pQj29JS6n75-129" style="points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0}" value="" vertex="1">
+          <mxGeometry height="370" width="10" x="70" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-132" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="RecommendationSystem" vertex="1">
+          <mxGeometry height="970" width="195" x="1122" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-133" parent="lyT2ghbH6pQj29JS6n75-132" style="points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0}" value="" vertex="1">
+          <mxGeometry height="124" width="10" x="93" y="627" as="geometry" />
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-134" edge="1" parent="1" source="lyT2ghbH6pQj29JS6n75-122" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="lyT2ghbH6pQj29JS6n75-124" value="Создание нового плейлиста">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="274" y="287" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-135" edge="1" parent="1" source="lyT2ghbH6pQj29JS6n75-124" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="lyT2ghbH6pQj29JS6n75-127" value="Запрос создания плейлиста">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="586" y="339" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-136" edge="1" parent="1" source="lyT2ghbH6pQj29JS6n75-127" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" value="Создание записи плейлиста">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="867" y="391" />
+            </Array>
+            <mxPoint x="992.0000000000005" y="391" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-137" edge="1" parent="1" source="lyT2ghbH6pQj29JS6n75-129" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="lyT2ghbH6pQj29JS6n75-127" value="Подтверждение создания">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="868" y="443" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-138" edge="1" parent="1" source="lyT2ghbH6pQj29JS6n75-127" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="lyT2ghbH6pQj29JS6n75-124" value="Возврат результата">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="587" y="495" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-139" edge="1" parent="1" source="lyT2ghbH6pQj29JS6n75-124" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="lyT2ghbH6pQj29JS6n75-122" value="Отображение созданного плейлиста">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="275" y="547" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-140" edge="1" parent="1" source="lyT2ghbH6pQj29JS6n75-122" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="lyT2ghbH6pQj29JS6n75-125" value="Добавление треков в плейлист">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="274" y="599" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-141" edge="1" parent="1" source="lyT2ghbH6pQj29JS6n75-125" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="lyT2ghbH6pQj29JS6n75-128" value="Запрос добавления треков">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="586" y="651" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-142" edge="1" parent="1" source="lyT2ghbH6pQj29JS6n75-128" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="lyT2ghbH6pQj29JS6n75-131" value="Обновление плейлиста">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="867" y="703" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-143" edge="1" parent="1" source="lyT2ghbH6pQj29JS6n75-129" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="lyT2ghbH6pQj29JS6n75-128" value="Подтверждение обновления">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="868" y="755" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-144" edge="1" parent="1" source="lyT2ghbH6pQj29JS6n75-128" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="lyT2ghbH6pQj29JS6n75-133" value="Отправка данных для анализа">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="978" y="807" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-145" edge="1" parent="1" source="lyT2ghbH6pQj29JS6n75-133" style="curved=1;endArrow=block;rounded=0;" target="lyT2ghbH6pQj29JS6n75-133" value="Обновление модели пользователя">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1275" y="859" />
+              <mxPoint x="1275" y="889" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-146" edge="1" parent="1" source="lyT2ghbH6pQj29JS6n75-132" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="lyT2ghbH6pQj29JS6n75-128" value="Подтверждение обработки">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="979" y="941" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-147" edge="1" parent="1" source="lyT2ghbH6pQj29JS6n75-128" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="lyT2ghbH6pQj29JS6n75-125" value="Подтверждение добавления">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="587" y="993" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyT2ghbH6pQj29JS6n75-148" edge="1" parent="1" source="lyT2ghbH6pQj29JS6n75-125" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="lyT2ghbH6pQj29JS6n75-122" value="Обновление интерфейса плейлиста">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="275" y="1045" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
