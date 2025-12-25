@@ -1,0 +1,14 @@
+C:\Users\Михаил\Desktop\ооп\лабка8\лабка8\bin\Debug\net8.0\лабка8.exe
+C:\Users\Михаил\Desktop\ооп\лабка8\лабка8\bin\Debug\net8.0\лабка8.deps.json
+C:\Users\Михаил\Desktop\ооп\лабка8\лабка8\bin\Debug\net8.0\лабка8.runtimeconfig.json
+C:\Users\Михаил\Desktop\ооп\лабка8\лабка8\bin\Debug\net8.0\лабка8.dll
+C:\Users\Михаил\Desktop\ооп\лабка8\лабка8\bin\Debug\net8.0\лабка8.pdb
+C:\Users\Михаил\Desktop\ооп\лабка8\лабка8\obj\Debug\net8.0\лабка8.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Михаил\Desktop\ооп\лабка8\лабка8\obj\Debug\net8.0\лабка8.AssemblyInfoInputs.cache
+C:\Users\Михаил\Desktop\ооп\лабка8\лабка8\obj\Debug\net8.0\лабка8.AssemblyInfo.cs
+C:\Users\Михаил\Desktop\ооп\лабка8\лабка8\obj\Debug\net8.0\лабка8.csproj.CoreCompileInputs.cache
+C:\Users\Михаил\Desktop\ооп\лабка8\лабка8\obj\Debug\net8.0\лабка8.dll
+C:\Users\Михаил\Desktop\ооп\лабка8\лабка8\obj\Debug\net8.0\refint\лабка8.dll
+C:\Users\Михаил\Desktop\ооп\лабка8\лабка8\obj\Debug\net8.0\лабка8.pdb
+C:\Users\Михаил\Desktop\ооп\лабка8\лабка8\obj\Debug\net8.0\лабка8.genruntimeconfig.cache
+C:\Users\Михаил\Desktop\ооп\лабка8\лабка8\obj\Debug\net8.0\ref\лабка8.dll
