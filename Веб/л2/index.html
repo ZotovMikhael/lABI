@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Новостной портал</title>
+    <link rel="stylesheet" href="style.css">
+    <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+<div id="newsRoot"></div>
+
+<script type="text/babel">
+    // База новостей
+    const newsDatabase = {
+        "Политика": [
+            { id: 1, title: "Принят закон о цифровом суверенитете", description: "Государственная дума одобрила пакет мер, усиливающих защиту данных и локальную IT-инфраструктуру. Эксперты называют решение историческим.", isTop: true },
+            { id: 2, title: "Переговоры о климатическом союзе", description: "Лидеры нескольких стран провели саммит, посвященный снижению выбросов к 2035 году. Достигнуты предварительные договоренности.", isTop: false },
+            { id: 3, title: "Реформа местного самоуправления", description: "Новые полномочия муниципалитетов вступят в силу с января следующего года. Основной упор — на цифровизацию услуг.", isTop: false }
+        ],
+        "Спорт": [
+            { id: 4, title: "Олимпийские надежды: рекорд на отборочном этапе", description: "Молодой пловец установил мировой рекорд на дистанции 200 метров. Тренеры прочат ему золото на Играх.", isTop: true },
+            { id: 5, title: "Финал Лиги чемпионов: интрига сохраняется", description: "Полуфинальные матчи завершились неожиданными результатами. Финал обещает быть зрелищным.", isTop: false },
+            { id: 6, title: "Новый контракт звезды баскетбола", description: "Самый ценный игрок прошлого сезона продлил соглашение с клубом на 4 года. Сумма сделки стала рекордной для лиги.", isTop: true }
+        ],
+        "Технологии": [
+            { id: 7, title: "ИИ научился предсказывать землетрясения", description: "Нейросеть от Google Research показывает точность 85% за 3 дня до события. Прорыв в сейсмологии.", isTop: true },
+            { id: 8, title: "Презентация нового поколения гибких дисплеев", description: "Компания Samsung представила панели, которые выдерживают 500 000 сгибов. Устройства появятся в 2025 году.", isTop: false },
+            { id: 9, title: "Квантовый компьютер преодолел барьер", description: "Учёные из Китая запустили 256-кубитную систему, способную моделировать сложные молекулы.", isTop: false }
+        ],
+        "Экономика": [
+            { id: 10, title: "Инфляция замедляется: прогнозы ЦБ", description: "Годовая инфляция снизилась до 5.2% благодаря мерам денежно-кредитной политики. Эксперты ждут стабилизации.", isTop: true },
+            { id: 11, title: "Золото дорожает на фоне геополитики", description: "Цена унции превысила 2400 долларов впервые за полгода. Инвесторы ищут защитные активы.", isTop: false },
+            { id: 12, title: "Стартап-экосистема: рекордные инвестиции", description: "В первом квартале венчурные фонды вложили 15 млрд в tech-проекты. Лидирует сфера зелёной энергетики.", isTop: true }
+        ]
+    };
+
+    const CATEGORIES = ["Политика", "Спорт", "Технологии", "Экономика"];
+    const FIXED_DATE = "15.04.2026";
+
+    // Компонент новости с условными стилями top-news
+    const NewsItem = ({ news, index }) => {
+        const animationDelay = `${index * 0.05}s`;
+        return (
+            <div className={`news-card ${news.isTop ? 'top-news' : ''}`} style={{ animationDelay }}>
+                <div className="news-title">
+                    {news.title}
+                    {news.isTop && <span className="top-badge">⚡ ТОП МАТЕРИАЛ</span>}
+                </div>
+                <div className="news-description">{news.description}</div>
+                <div className="news-meta">
+                    <span>📅 {FIXED_DATE}</span>
+                    <span>👁️ {Math.floor(Math.random() * 300 + 100)} просмотров</span>
+                    {news.isTop && <span>🔥 В тренде</span>}
+                </div>
+            </div>
+        );
+    };
+
+    const NewsPortal = () => {
+        const [activeCategory, setActiveCategory] = React.useState(CATEGORIES[0]);
+        const [fade, setFade] = React.useState(false);
+
+        const currentNews = newsDatabase[activeCategory] || [];
+
+        const handleChange = (cat) => {
+            if (cat === activeCategory) return;
+            setFade(true);
+            setTimeout(() => {
+                setActiveCategory(cat);
+                setFade(false);
+            }, 200);
+        };
+
+        return (
+            <div className="news-portal">
+                <div className="portal-header">
+                    <div className="logo-area">
+                        <h1>📰 INFORM <span>| Новости дня</span></h1>
+                        <div className="header-accent"></div>
+                    </div>
+                    <div className="category-tabs">
+                        {CATEGORIES.map(cat => (
+                            <button
+                                key={cat}
+                                onClick={() => handleChange(cat)}
+                                className={`cat-btn ${activeCategory === cat ? 'active' : ''}`}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="news-main">
+                    <div className="dynamic-headline">
+                        <span className="headline-icon">✨</span> {activeCategory} • главные события
+                    </div>
+
+                    <div className={`news-grid ${fade ? 'fade-out' : 'fade-in'}`}>
+                        {currentNews.length > 0 ? (
+                            currentNews.map((news, idx) => (
+                                <NewsItem key={news.id} news={news} index={idx} />
+                            ))
+                        ) : (
+                            <div className="empty-news">✨ Свежие материалы скоро появятся...</div>
+                        )}
+                    </div>
+                </div>
+
+                <div className="portal-footer">
+                    <span>Дата: 15.04.2026</span>
+                </div>
+            </div>
+        );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById("newsRoot"));
+    root.render(<NewsPortal />);
+</script>
+</body>
+</html>

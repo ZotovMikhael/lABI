@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме специалиста ИТ — Зотов Михаил</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ШАПКА: header + h1 -->
+        <header>
+            <h1>Зотов Михаил Павлович · IT-специалист</h1>
+            <p class="subtitle">⚡ .NET Core | ASP.NET Core | PostgreSQL ⚡</p>
+        </header>
+
+        <!-- ОСНОВНОЕ СОДЕРЖИМОЕ -->
+        <main>
+            <!-- СЕКЦИЯ №1: личная информация и дата рождения -->
+            <section>
+                <h2>📋 Личные данные</h2>
+                <p><strong>Дата рождения:</strong> 13 октября 2006 г.</p>
+                <p><strong>Гражданство:</strong> Российская Федерация</p>
+                <p><strong>Телефон:</strong> +7 (999) 123-45-67</p>
+                <p><strong>Email:</strong> zotov.mp@mail.ru</p>
+            </section>
+
+            <!-- СТАТЬЯ (обязательный тег) — профиль/цели -->
+            <article>
+                <h3>🎯 Цель и профиль</h3>
+                <p>Начинающий разработчик на C# и .NET Core. Стремлюсь создавать эффективные веб-решения с использованием ASP.NET Core и реляционных баз данных. Увлекаюсь архитектурой backend-части, написанием чистого кода и оптимизацией запросов к PostgreSQL.</p>
+            </article>
+
+            <!-- ТАБЛИЦА №1: Опыт работы (3 колонки, 4 строки) -->
+            <section>
+                <h2>💼 Опыт работы</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Период</th>
+                            <th>Должность / Проект</th>
+                            <th>Компания / Стек</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2025 — настоящее время</td>
+                            <td>Стажёр-разработчик (backend)</td>
+                            <td>ООО "ИТ-Решения" (C# .NET Core, PostgreSQL)</td>
+                        </tr>
+                        <tr>
+                            <td>2024 — 2025</td>
+                            <td>Junior-разработчик учебных проектов</td>
+                            <td>Лаборатория вуза (ASP.NET Core, Bootstrap)</td>
+                        </tr>
+                        <tr>
+                            <td>2023 — 2024</td>
+                            <td>Технический писатель / аналитик</td>
+                            <td>Фриланс (документация API, SQL-схемы)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="table-note">* Таблица 1: хронология профессионального опыта (3 колонки, 4 строки).</p>
+            </section>
+
+            <!-- СЕКЦИЯ №2: Навыки + таблица №2 (3 колонки) -->
+            <section>
+                <h2>🧰 Технические навыки</h2>
+                <!-- Таблица №2 — 3 колонки, 4 строки (заголовок + 3 строки навыков) -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Категория</th>
+                            <th>Технология / Инструмент</th>
+                            <th>Уровень владения</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Языки программирования</td>
+                            <td>C#, .NET Core</td>
+                            <td>Продвинутый</td>
+                        </tr>
+                        <tr>
+                            <td>Фреймворки</td>
+                            <td>ASP.NET Core MVC / Web API</td>
+                            <td>Средний+</td>
+                        </tr>
+                        <tr>
+                            <td>Базы данных</td>
+                            <td>PostgreSQL, SQLite</td>
+                            <td>Средний (написание запросов, индексы)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Маркированный список ul (минимум 5 элементов) -->
+                <h3>📌 Ключевые компетенции (подробно)</h3>
+                <ul>
+                    <li>Разработка серверной части на .NET Core / ASP.NET Core</li>
+                    <li>Работа с PostgreSQL: сложные запросы, LINQ to Entities</li>
+                    <li>Знание принципов ООП, SOLID, паттернов проектирования</li>
+                    <li>Опыт работы с системами контроля версий Git (GitHub, GitLab)</li>
+                    <li>Базовое понимание контейнеризации (Docker) и CI/CD</li>
+                    <li>Навыки написания unit-тестов (xUnit, NUnit) — дополнительно</li>
+                </ul>
+                <!-- Примечание: в списке 6 элементов, требование минимум 5 выполнено -->
+            </section>
+
+            <!-- КОНТАКТНАЯ ФОРМА -->
+            <section>
+                <h2>📬 Связаться со мной</h2>
+                <form action="#" method="post">
+                    <!-- Поле text -->
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" name="name" placeholder="Иван Петров" required>
+                    </div>
+
+                    <!-- Поле email -->
+                    <div class="form-group">
+                        <label for="email">Электронная почта</label>
+                        <input type="email" id="email" name="email" placeholder="example@mail.ru" required>
+                    </div>
+
+                    <!-- Поле submit (отправка) -->
+                    <div class="form-group">
+                        <input type="submit" value="Отправить сообщение">
+                    </div>
+
+                    <p class="form-note">Напишите мне — отвечу в ближайшее время.</p>
+                </form>
+            </section>
+        </main>
+
+        <!-- ПОДВАЛ: footer + p -->
+        <footer>
+            <p>© 2026 Зотов Михаил Павлович — резюме разработано в рамках учебного задания по HTML/CSS. Все права защищены.</p>
+            <p class="footer-date">📅 Дата рождения: 13.10.2006 | стек: .NET Core, ASP.NET Core, PostgreSQL</p>
+        </footer>
+    </div>
+</body>
+</html>

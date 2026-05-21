@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    background: #f0f4f8;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Главный блок новостей */
+.news-portal {
+    max-width: 1000px;
+    width: 100%;
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Шапка */
+.portal-header {
+    background: #1a3a4a;
+    padding: 1.5rem 2rem;
+    color: white;
+}
+
+.logo-area h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+}
+
+.logo-area h1 span {
+    font-weight: 400;
+    font-size: 1rem;
+    color: #cbd5e1;
+}
+
+.header-accent {
+    height: 3px;
+    width: 70px;
+    background: #ff9800;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+}
+
+/* Кнопки категорий */
+.category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.cat-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cat-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.cat-btn.active {
+    background: #ff9800;
+    color: #1a3a4a;
+    font-weight: 600;
+}
+
+/* Основная зона */
+.news-main {
+    padding: 2rem;
+}
+
+/* Динамический заголовок */
+.dynamic-headline {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1a3a4a;
+    border-left: 5px solid #ff9800;
+    padding-left: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+.headline-icon {
+    margin-right: 0.5rem;
+}
+
+/* Сетка новостей */
+.news-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Карточка новости (обычная) */
+.news-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.news-card:hover {
+    transform: translateX(4px);
+    border-color: #cbd5e1;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* УСЛОВНЫЙ СТИЛЬ для топ-новостей — вот главное выделение */
+.news-card.top-news {
+    background: #fffaf0;
+    border-left: 5px solid #ff9800;
+    border-top: 1px solid #ffe0b2;
+    border-right: 1px solid #ffe0b2;
+    border-bottom: 1px solid #ffe0b2;
+}
+
+/* Бейдж топ-новости */
+.top-badge {
+    display: inline-block;
+    background: #ff9800;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.8rem;
+    border-radius: 30px;
+    margin-left: 0.8rem;
+    vertical-align: middle;
+}
+
+/* Заголовок новости */
+.news-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Описание */
+.news-description {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: #475569;
+    margin-bottom: 0.6rem;
+}
+
+/* Мета-информация (дата, просмотры) */
+.news-meta {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 0.6rem;
+    font-size: 0.7rem;
+    color: #94a3b8;
+    border-top: 1px solid #eef2f6;
+    padding-top: 0.6rem;
+}
+
+.news-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+/* Пустое состояние */
+.empty-news {
+    background: #f8fafc;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    color: #64748b;
+    border: 1px dashed #cbd5e1;
+}
+
+/* Футер */
+.portal-footer {
+    background: #f1f5f9;
+    padding: 0.8rem 2rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 650px) {
+    body {
+        padding: 1rem;
+    }
+    .news-main {
+        padding: 1.2rem;
+    }
+    .dynamic-headline {
+        font-size: 1.4rem;
+    }
+    .news-title {
+        font-size: 1.1rem;
+    }
+    .cat-btn {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.8rem;
+    }
+    .portal-header h1 {
+        font-size: 1.4rem;
+    }
+}
