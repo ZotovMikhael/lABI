@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Корзина магазина — Глобальное состояние + Анимации</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- React + ReactDOM + Babel -->
+    <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // ---------------------- ГЛОБАЛЬНОЕ СОСТОЯНИЕ (CONTEXT + REDUCER) ----------------------
+        const CartContext = React.createContext(null);
+
+        const cartReducer = (state, action) => {
+            switch (action.type) {
+                case 'ADD_ITEM': {
+                    const existingItem = state.items.find(item => item.id === action.payload.id);
+                    if (existingItem) {
+                        return {
+                            items: state.items.map(item =>
+                                item.id === action.payload.id
+                                    ? { ...item, quantity: item.quantity + 1 }
+                                    : item
+                            )
+                        };
+                    } else {
+                        return {
+                            items: [...state.items, { ...action.payload, quantity: 1 }]
+                        };
+                    }
+                }
+                case 'REMOVE_ITEM': {
+                    return { items: state.items.filter(item => item.id !== action.payload) };
+                }
+                case 'UPDATE_QUANTITY': {
+                    const { id, quantity } = action.payload;
+                    if (quantity <= 0) {
+                        return { items: state.items.filter(item => item.id !== id) };
+                    }
+                    return {
+                        items: state.items.map(item =>
+                            item.id === id ? { ...item, quantity: quantity } : item
+                        )
+                    };
+                }
+                default: return state;
+            }
+        };
+
+        const CartProvider = ({ children }) => {
+            const [state, dispatch] = React.useReducer(cartReducer, { items: [] });
+
+            const totalItems = React.useMemo(() =>
+                state.items.reduce((sum, item) => sum + item.quantity, 0),
+                [state.items]
+            );
+            const totalCost = React.useMemo(() =>
+                state.items.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                [state.items]
+            );
+
+            const addToCart = (product) => {
+                dispatch({ type: 'ADD_ITEM', payload: { id: product.id, name: product.name, price: product.price } });
+            };
+            const removeFromCart = (id) => dispatch({ type: 'REMOVE_ITEM', payload: id });
+            const updateQuantity = (id, quantity) => dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity } });
+
+            const value = { cartItems: state.items, totalItems, totalCost, addToCart, removeFromCart, updateQuantity };
+            return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+        };
+
+        const useCart = () => {
+            const context = React.useContext(CartContext);
+            if (!context) throw new Error('useCart must be used within CartProvider');
+            return context;
+        };
+
+        // ---------------------- СПИСОК ТОВАРОВ ----------------------
+        const productsData = [
+            { id: 1, name: 'Смартфон Samsung Galaxy A51', price: 30000, emoji: '📱', desc: '6.7" AMOLED, 128GB' },
+            { id: 2, name: 'Наушники Redmi Buds 6', price: 8990, emoji: '🎧', desc: 'Active noise cancelling' },
+            { id: 3, name: 'Механическая клавиатура', price: 5490, emoji: '⌨️', desc: 'RGB, тактильные свичи' },
+            { id: 4, name: 'Игровая мышь defender', price: 3250, emoji: '🖱️', desc: '16000 DPI' },
+            { id: 5, name: 'Умные часы Samsung', price: 15990, emoji: '⌚', desc: 'GPS + пульсометр' }
+        ];
+
+        const ProductList = () => {
+            const { addToCart } = useCart();
+            return (
+                <div className="products-grid">
+                    {productsData.map(product => (
+                        <div key={product.id} className="product-card">
+                            <div className="product-emoji">{product.emoji}</div>
+                            <div className="product-title">{product.name}</div>
+                            <div className="product-price">{product.price.toLocaleString()} <small>₽</small></div>
+                            <div style={{ fontSize: '0.8rem', color: '#6f839b', marginBottom: '12px' }}>{product.desc}</div>
+                            <button className="add-to-cart" onClick={() => addToCart(product)}>🛒 + В корзину</button>
+                        </div>
+                    ))}
+                </div>
+            );
+        };
+
+        // ---------------------- БОКОВАЯ КОРЗИНА (анимация появления/скрытия) ----------------------
+        const CartSidebar = ({ isOpen, onClose }) => {
+            const { cartItems, totalCost, updateQuantity, removeFromCart, totalItems } = useCart();
+
+            const handleDecrease = (item) => {
+                const newQty = item.quantity - 1;
+                if (newQty === 0) removeFromCart(item.id);
+                else updateQuantity(item.id, newQty);
+            };
+            const handleIncrease = (item) => updateQuantity(item.id, item.quantity + 1);
+
+            return (
+                <>
+                    <div className={`cart-overlay ${isOpen ? 'open' : ''}`} onClick={onClose}></div>
+                    <div className={`cart-sidebar ${isOpen ? 'open' : ''}`}>
+                        <div className="cart-header">
+                            <h2>🛍️ Корзина</h2>
+                            <button className="close-cart" onClick={onClose}>&times;</button>
+                        </div>
+                        <div className="cart-items-list">
+                            {cartItems.length === 0 ? (
+                                <div className="empty-cart-message">🌱 Корзина пуста<br />Добавьте товары</div>
+                            ) : (
+                                cartItems.map(item => (
+                                    <div key={item.id} className="cart-item">
+                                        <div className="cart-item-info">
+                                            <div className="cart-item-name">{item.name}</div>
+                                            <div className="cart-item-price">{item.price.toLocaleString()} ₽</div>
+                                        </div>
+                                        <div className="cart-item-actions">
+                                            <button className="quantity-btn" onClick={() => handleDecrease(item)}>−</button>
+                                            <span className="item-qty">{item.quantity}</span>
+                                            <button className="quantity-btn" onClick={() => handleIncrease(item)}>+</button>
+                                            <button className="remove-item" onClick={() => removeFromCart(item.id)}>🗑️</button>
+                                        </div>
+                                    </div>
+                                ))
+                            )}
+                        </div>
+                        <div className="cart-total">
+                            <div className="total-row">
+                                <span>Итого:</span>
+                                <span>{totalCost.toLocaleString()} ₽</span>
+                            </div>
+                            <div style={{ fontSize: '0.8rem', color: '#5c6f87', textAlign: 'center', marginTop: '8px' }}>
+                                {totalItems} {totalItems === 1 ? 'товар' : (totalItems >= 2 && totalItems <= 4 ? 'товара' : 'товаров')}
+                            </div>
+                        </div>
+                    </div>
+                </>
+            );
+        };
+
+        // ---------------------- ШАПКА С АНИМИРОВАННЫМ СЧЁТЧИКОМ ----------------------
+        const HeaderWithCart = ({ onCartToggle }) => {
+            const { totalItems, totalCost } = useCart();
+            const [animateBadge, setAnimateBadge] = React.useState(false);
+            const prevTotalRef = React.useRef(totalItems);
+
+            React.useEffect(() => {
+                if (prevTotalRef.current !== totalItems) {
+                    setAnimateBadge(true);
+                    const timeout = setTimeout(() => setAnimateBadge(false), 350);
+                    return () => clearTimeout(timeout);
+                }
+                prevTotalRef.current = totalItems;
+            }, [totalItems]);
+
+            return (
+                <div className="header">
+                    <div className="logo">
+                        <h1>✨ TechMarket</h1>
+                        <span>лучшие гаджеты</span>
+                    </div>
+                    <button className="cart-icon-btn" onClick={onCartToggle}>
+                        <div className="cart-icon">
+                            🛒
+                            {totalItems > 0 && (
+                                <span className={`cart-badge ${animateBadge ? 'pop-animation' : ''}`}>
+                                    {totalItems > 99 ? '99+' : totalItems}
+                                </span>
+                            )}
+                        </div>
+                        <div className="cart-summary">{totalCost.toLocaleString()} ₽</div>
+                    </button>
+                </div>
+            );
+        };
+
+        // ---------------------- ОСНОВНОЙ APP ----------------------
+        const App = () => {
+            const [isCartOpen, setIsCartOpen] = React.useState(false);
+            const toggleCart = () => setIsCartOpen(prev => !prev);
+            const closeCart = () => setIsCartOpen(false);
+
+            React.useEffect(() => {
+                const handleEsc = (e) => { if (e.key === 'Escape' && isCartOpen) closeCart(); };
+                window.addEventListener('keydown', handleEsc);
+                return () => window.removeEventListener('keydown', handleEsc);
+            }, [isCartOpen]);
+
+            return (
+                <CartProvider>
+                    <div className="app-container">
+                        <HeaderWithCart onCartToggle={toggleCart} />
+                        <ProductList />
+                        <footer>⭐ Глобальное состояние • Синхронизация • Анимация счётчика • Общая стоимость</footer>
+                    </div>
+                    <CartSidebar isOpen={isCartOpen} onClose={closeCart} />
+                </CartProvider>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
