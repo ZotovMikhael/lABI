@@ -1,0 +1,398 @@
+/* style.css - Интерактивная таблица оценок
+   Анимация строк, SVG прогресс-бары, кастомные интерактивные эффекты
+*/
+
+/* ---------- Глобальные стили и сброс ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    background: linear-gradient(145deg, #e9eef3 0%, #dce3ec 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* ---------- Главная карточка таблицы ---------- */
+.grade-card {
+    max-width: 1300px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(2px);
+    border-radius: 2.5rem;
+    box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    padding: 1.8rem 2rem 2rem 2rem;
+    transition: all 0.2s;
+}
+
+/* ---------- Заголовки ---------- */
+h1 {
+    font-size: 1.9rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #1f2b3c, #2c3e50);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: -0.3px;
+    display: inline-block;
+    margin-bottom: 0.25rem;
+}
+
+.sub {
+    color: #4a627a;
+    border-left: 4px solid #3b82f6;
+    padding-left: 1rem;
+    margin: 0.5rem 0 1.5rem 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* ---------- Панель управления (тулбар) ---------- */
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    background: #ffffffcc;
+    padding: 0.8rem 1.2rem;
+    border-radius: 2rem;
+    backdrop-filter: blur(4px);
+}
+
+.sort-buttons {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+/* Стили кнопок */
+.btn {
+    background: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #1e2f3f;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    background: #f0f4fa;
+}
+
+/* Информационный бейдж */
+.info-badge {
+    background: #eef2ff;
+    border-radius: 2rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    color: #1e40af;
+    font-weight: 500;
+}
+
+/* ---------- Обертка таблицы (для скролла на мобильных) ---------- */
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 0.25rem;
+}
+
+/* ---------- Таблица ---------- */
+.grades-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.grades-table th {
+    background: #f8fafd;
+    padding: 1rem 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #1e293b;
+    border-bottom: 2px solid #e2edf7;
+    text-align: left;
+}
+
+.grades-table td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid #ecf3f9;
+    vertical-align: middle;
+    transition: background 0.2s;
+}
+
+/* ---------- АНИМАЦИЯ ПЕРЕСТАНОВКИ СТРОК ---------- */
+/* Базовый класс для анимированных строк */
+.animated-row {
+    transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    will-change: transform, opacity;
+}
+
+/* Класс для эффекта движения при перестановке */
+.row-move {
+    transition: transform 0.3s ease, box-shadow 0.2s;
+}
+
+/* Анимация появления строк при загрузке/сортировке */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Применяем анимацию к строкам при первом рендере или перестановке */
+.grades-table tbody tr {
+    animation: slideInUp 0.35s ease-out forwards;
+}
+
+/* Hover-эффект для строк - дополнительный интерактив */
+.grades-table tbody tr:hover {
+    background: #fefce8;
+    transition: background 0.15s;
+}
+
+/* ---------- ЯЧЕЙКИ ОЦЕНОК (интерактивные) ---------- */
+.grade-cell {
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 40px;
+    width: 60px;
+    transition: all 0.2s ease;
+    background: #fefce8;
+    color: #b45309;
+}
+
+/* Эффект наведения на ячейку оценки */
+.grade-cell:hover {
+    background: #ffedd5;
+    transform: scale(1.08);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #ea580c;
+}
+
+/* Эффект нажатия (активное состояние) */
+.grade-cell:active {
+    transform: scale(0.96);
+}
+
+/* Анимация подсветки при изменении оценки */
+@keyframes gentlePulse {
+    0% {
+        background-color: #fff9e0;
+        transform: scale(1);
+    }
+    50% {
+        background-color: #fde68a;
+        transform: scale(1.05);
+    }
+    100% {
+        background-color: #fefce8;
+        transform: scale(1);
+    }
+}
+
+.highlight-grade {
+    animation: gentlePulse 0.5s ease;
+}
+
+/* ---------- Имя студента с аватаркой ---------- */
+.student-name {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    background: #cbdff5;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+/* ---------- SVG ПРОГРЕСС-БАРЫ (векторная графика с анимацией) ---------- */
+.progress-container {
+    width: 140px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.progress-svg {
+    width: 100px;
+    height: 44px;
+}
+
+/* Анимация для SVG-элементов: плавное изменение ширины */
+.progress-svg rect:last-child {
+    transition: width 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* Текст прогресса */
+.progress-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #2c3e66;
+    min-width: 38px;
+}
+
+/* ---------- Средний балл ---------- */
+.grades-table td:nth-child(5) {
+    font-weight: bold;
+    color: #0f3b5c;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    margin-top: 1.6rem;
+    font-size: 0.7rem;
+    text-align: center;
+    color: #5d6f88;
+}
+
+/* ---------- АДАПТИВНОСТЬ (планшеты и мобильные) ---------- */
+@media (max-width: 760px) {
+    .grade-card {
+        padding: 1rem;
+    }
+
+    .grades-table th,
+    .grades-table td {
+        padding: 0.6rem 0.5rem;
+    }
+
+    .progress-container {
+        width: 110px;
+    }
+
+    .progress-svg {
+        width: 70px;
+    }
+
+    .grade-cell {
+        font-size: 1rem;
+        min-width: 45px;
+    }
+
+    .btn {
+        padding: 0.4rem 0.9rem;
+        font-size: 0.75rem;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 550px) {
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sort-buttons {
+        justify-content: center;
+    }
+
+    .info-badge {
+        text-align: center;
+    }
+
+    .grades-table th,
+    .grades-table td {
+        padding: 0.5rem 0.3rem;
+        font-size: 0.8rem;
+    }
+
+    .student-name {
+        gap: 4px;
+        font-size: 0.85rem;
+    }
+
+    .avatar {
+        width: 26px;
+        height: 26px;
+        font-size: 0.7rem;
+    }
+}
+
+/* ---------- ДОПОЛНИТЕЛЬНЫЕ ИНТЕРАКТИВНЫЕ ЭФФЕКТЫ ---------- */
+/* Курсор-поинтер для всех кликабельных элементов */
+.grade-cell,
+.btn,
+.sort-buttons button {
+    cursor: pointer;
+}
+
+/* Эффект фокуса для accessibility */
+.btn:focus-visible,
+.grade-cell:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Легкая тень при наведении на строку таблицы */
+.grades-table tbody tr:hover td {
+    background: rgba(254, 252, 232, 0.5);
+}
+
+/* Плавное появление всей таблицы */
+.grades-table {
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
