@@ -1,0 +1,14 @@
+C:\Users\Михаил\Desktop\Уник\4 семестр\Шаблоны4сем\шаб1\PluginApp\PluginApp\bin\Debug\net8.0\PluginApp.exe
+C:\Users\Михаил\Desktop\Уник\4 семестр\Шаблоны4сем\шаб1\PluginApp\PluginApp\bin\Debug\net8.0\PluginApp.deps.json
+C:\Users\Михаил\Desktop\Уник\4 семестр\Шаблоны4сем\шаб1\PluginApp\PluginApp\bin\Debug\net8.0\PluginApp.runtimeconfig.json
+C:\Users\Михаил\Desktop\Уник\4 семестр\Шаблоны4сем\шаб1\PluginApp\PluginApp\bin\Debug\net8.0\PluginApp.dll
+C:\Users\Михаил\Desktop\Уник\4 семестр\Шаблоны4сем\шаб1\PluginApp\PluginApp\bin\Debug\net8.0\PluginApp.pdb
+C:\Users\Михаил\Desktop\Уник\4 семестр\Шаблоны4сем\шаб1\PluginApp\PluginApp\obj\Debug\net8.0\PluginApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Михаил\Desktop\Уник\4 семестр\Шаблоны4сем\шаб1\PluginApp\PluginApp\obj\Debug\net8.0\PluginApp.AssemblyInfoInputs.cache
+C:\Users\Михаил\Desktop\Уник\4 семестр\Шаблоны4сем\шаб1\PluginApp\PluginApp\obj\Debug\net8.0\PluginApp.AssemblyInfo.cs
+C:\Users\Михаил\Desktop\Уник\4 семестр\Шаблоны4сем\шаб1\PluginApp\PluginApp\obj\Debug\net8.0\PluginApp.csproj.CoreCompileInputs.cache
+C:\Users\Михаил\Desktop\Уник\4 семестр\Шаблоны4сем\шаб1\PluginApp\PluginApp\obj\Debug\net8.0\PluginApp.dll
+C:\Users\Михаил\Desktop\Уник\4 семестр\Шаблоны4сем\шаб1\PluginApp\PluginApp\obj\Debug\net8.0\refint\PluginApp.dll
+C:\Users\Михаил\Desktop\Уник\4 семестр\Шаблоны4сем\шаб1\PluginApp\PluginApp\obj\Debug\net8.0\PluginApp.pdb
+C:\Users\Михаил\Desktop\Уник\4 семестр\Шаблоны4сем\шаб1\PluginApp\PluginApp\obj\Debug\net8.0\PluginApp.genruntimeconfig.cache
+C:\Users\Михаил\Desktop\Уник\4 семестр\Шаблоны4сем\шаб1\PluginApp\PluginApp\obj\Debug\net8.0\ref\PluginApp.dll
